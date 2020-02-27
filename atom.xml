@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>http://blog.vemagic.com</id>
-    <title>vEmagic&apos;s Blog</title>
-    <updated>2020-02-26T15:13:18.989Z</updated>
+    <title>❤️vEmagic&apos;s Blog</title>
+    <updated>2020-02-27T14:46:38.718Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="http://blog.vemagic.com"/>
     <link rel="self" href="http://blog.vemagic.com/atom.xml"/>
     <subtitle>Love what you love</subtitle>
     <logo>http://blog.vemagic.com/images/avatar.png</logo>
     <icon>http://blog.vemagic.com/favicon.ico</icon>
-    <rights>All rights reserved 2020, vEmagic&apos;s Blog</rights>
+    <rights>All rights reserved 2020, ❤️vEmagic&apos;s Blog</rights>
     <entry>
         <title type="html"><![CDATA[在VMWare上安装Arch Linux]]></title>
         <id>http://blog.vemagic.com/post/zai-vmware-shang-an-zhuang-arch-linux/</id>
