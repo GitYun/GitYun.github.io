@@ -1487,3 +1487,17 @@ a.toc-link {
 .post-content pre .javascript .function {
     color: #8959a8;
 }
+
+.lincese {
+    display:blcok;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.lincese .license_links::before {
+    color: #2d96bd;
+}
+
+.lincese .license_links:hover {
+    color: #ff0000;
+}
