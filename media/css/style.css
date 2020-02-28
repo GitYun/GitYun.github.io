@@ -513,11 +513,11 @@ header label {
 }
 
 .intro .avatar img {
-    width: 128px;
+    width: 512px;
     height: auto;
     display: inline-block;
-    -webkit-border-radius: 100%;
-    border-radius: 100%;
+    -webkit-border-radius: 1%;
+    border-radius: 1%;
     -webkit-box-shadow: 0 0 0 0.3618em rgba(0, 0, 0, 0.05);
     box-shadow: 0 0 0 0.3618em rgba(0, 0, 0, 0.05);
     margin: 0 auto;
@@ -1043,6 +1043,8 @@ header label {
     padding: 1rem 0 1rem;
     display: flex;
     justify-content: space-between;
+    line-height:50px;
+    font-size:20px;
 }
 
 .post-nav:before,
