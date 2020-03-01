@@ -1,10 +1,8 @@
 @charset "UTF-8";
 /*Reward*/
 .reward {
-  padding: 5px 0 5px 50px;
-  float: left;
-  margin-right: 5px;
-  margin-top: 5px;
+  float: flex;
+  align-items: center;
 }
 .reward .reward-notice {
   font-size: 22px;

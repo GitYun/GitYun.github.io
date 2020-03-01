@@ -1068,7 +1068,7 @@ header label {
 
 .post-nav a.prev::before {
     content: "<";
-    margin-right: 0.5em;
+    margin-right: 0em;
 }
 
 .post-nav a.prev:hover {
@@ -1081,7 +1081,7 @@ header label {
 
 .post-nav a.next::after {
     content: ">";
-    margin-left: 0.5em;
+    margin-left: 0em;
 }
 
 .post-nav a.next:hover {
