@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>http://blog.vemagic.com</id>
     <title>❤️vEmagic&apos;s Blog</title>
-    <updated>2020-02-28T15:12:13.811Z</updated>
+    <updated>2020-03-01T05:04:17.719Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="http://blog.vemagic.com"/>
     <link rel="self" href="http://blog.vemagic.com/atom.xml"/>
@@ -22,5 +22,68 @@
         <content type="html"><![CDATA[<h2 id="1-为什么选择arch-linux">1、为什么选择Arch Linux</h2>
 <p>Arch Linux 是通用 x86-64 GNU/Linux 发行版。Arch采用滚动升级模式，尽全力提供最新的稳定版软件。初始安装的Arch只是一个基本系统，随后用户可以根据自己的喜好安装需要的软件并配置成符合自己理想的系统。　　—— 引自Arch Linux Wiki</p>
 ]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[目送孩子般的自己]]></title>
+        <id>http://blog.vemagic.com/post/mu-song-hai-zi-ban-de-zi-ji/</id>
+        <link href="http://blog.vemagic.com/post/mu-song-hai-zi-ban-de-zi-ji/">
+        </link>
+        <updated>2011-07-09T02:24:24.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[梦]]></title>
+        <id>http://blog.vemagic.com/post/meng/</id>
+        <link href="http://blog.vemagic.com/post/meng/">
+        </link>
+        <updated>2011-07-06T04:56:46.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[记6月25日的气氛]]></title>
+        <id>http://blog.vemagic.com/post/ji-6-yue-25-ri-de-qi-fen/</id>
+        <link href="http://blog.vemagic.com/post/ji-6-yue-25-ri-de-qi-fen/">
+        </link>
+        <updated>2011-06-27T03:44:53.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[心生的向日葵]]></title>
+        <id>http://blog.vemagic.com/post/xin-sheng-de-xiang-ri-kui/</id>
+        <link href="http://blog.vemagic.com/post/xin-sheng-de-xiang-ri-kui/">
+        </link>
+        <updated>2011-06-24T02:56:58.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[回时的路]]></title>
+        <id>http://blog.vemagic.com/post/wu-ti-2/</id>
+        <link href="http://blog.vemagic.com/post/wu-ti-2/">
+        </link>
+        <updated>2010-07-25T03:32:08.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[欢唱——为其到来]]></title>
+        <id>http://blog.vemagic.com/post/huan-chang-wei-qi-dao-lai/</id>
+        <link href="http://blog.vemagic.com/post/huan-chang-wei-qi-dao-lai/">
+        </link>
+        <updated>2010-07-20T04:48:27.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[秘密]]></title>
+        <id>http://blog.vemagic.com/post/mi-mi/</id>
+        <link href="http://blog.vemagic.com/post/mi-mi/">
+        </link>
+        <updated>2010-07-15T04:40:50.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[追寻]]></title>
+        <id>http://blog.vemagic.com/post/zhui-xun/</id>
+        <link href="http://blog.vemagic.com/post/zhui-xun/">
+        </link>
+        <updated>2010-07-04T04:14:08.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[创世纪]]></title>
+        <id>http://blog.vemagic.com/post/chuang-shi-ji/</id>
+        <link href="http://blog.vemagic.com/post/chuang-shi-ji/">
+        </link>
+        <updated>2010-04-05T04:05:10.000Z</updated>
     </entry>
 </feed>
