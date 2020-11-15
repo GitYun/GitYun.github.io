@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <id>http://blog.vemagic.com</id>
+    <id>https://blog.vemagic.com</id>
     <title>vEmagic&apos;s Blog</title>
-    <updated>2020-11-15T06:51:53.808Z</updated>
+    <updated>2020-11-15T07:05:47.233Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
-    <link rel="alternate" href="http://blog.vemagic.com"/>
-    <link rel="self" href="http://blog.vemagic.com/atom.xml"/>
+    <link rel="alternate" href="https://blog.vemagic.com"/>
+    <link rel="self" href="https://blog.vemagic.com/atom.xml"/>
     <subtitle>Love what you love</subtitle>
-    <logo>http://blog.vemagic.com/images/avatar.png</logo>
-    <icon>http://blog.vemagic.com/favicon.ico</icon>
+    <logo>https://blog.vemagic.com/images/avatar.png</logo>
+    <icon>https://blog.vemagic.com/favicon.ico</icon>
     <rights>All rights reserved 2020, vEmagic&apos;s Blog</rights>
     <entry>
         <title type="html"><![CDATA[在VMWare上安装Arch Linux]]></title>
-        <id>http://blog.vemagic.com/post/zai-vmware-shang-an-zhuang-arch-linux/</id>
-        <link href="http://blog.vemagic.com/post/zai-vmware-shang-an-zhuang-arch-linux/">
+        <id>https://blog.vemagic.com/post/zai-vmware-shang-an-zhuang-arch-linux/</id>
+        <link href="https://blog.vemagic.com/post/zai-vmware-shang-an-zhuang-arch-linux/">
         </link>
         <updated>2020-02-26T12:40:26.000Z</updated>
         <summary type="html"><![CDATA[<h2 id="1-为什么选择arch-linux">1、为什么选择Arch Linux</h2>
@@ -25,64 +25,64 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[目送孩子般的自己]]></title>
-        <id>http://blog.vemagic.com/post/mu-song-hai-zi-ban-de-zi-ji/</id>
-        <link href="http://blog.vemagic.com/post/mu-song-hai-zi-ban-de-zi-ji/">
+        <id>https://blog.vemagic.com/post/mu-song-hai-zi-ban-de-zi-ji/</id>
+        <link href="https://blog.vemagic.com/post/mu-song-hai-zi-ban-de-zi-ji/">
         </link>
         <updated>2011-07-09T02:24:24.000Z</updated>
     </entry>
     <entry>
         <title type="html"><![CDATA[梦]]></title>
-        <id>http://blog.vemagic.com/post/meng/</id>
-        <link href="http://blog.vemagic.com/post/meng/">
+        <id>https://blog.vemagic.com/post/meng/</id>
+        <link href="https://blog.vemagic.com/post/meng/">
         </link>
         <updated>2011-07-06T04:56:46.000Z</updated>
     </entry>
     <entry>
         <title type="html"><![CDATA[记6月25日的气氛]]></title>
-        <id>http://blog.vemagic.com/post/ji-6-yue-25-ri-de-qi-fen/</id>
-        <link href="http://blog.vemagic.com/post/ji-6-yue-25-ri-de-qi-fen/">
+        <id>https://blog.vemagic.com/post/ji-6-yue-25-ri-de-qi-fen/</id>
+        <link href="https://blog.vemagic.com/post/ji-6-yue-25-ri-de-qi-fen/">
         </link>
         <updated>2011-06-27T03:44:53.000Z</updated>
     </entry>
     <entry>
         <title type="html"><![CDATA[心生的向日葵]]></title>
-        <id>http://blog.vemagic.com/post/xin-sheng-de-xiang-ri-kui/</id>
-        <link href="http://blog.vemagic.com/post/xin-sheng-de-xiang-ri-kui/">
+        <id>https://blog.vemagic.com/post/xin-sheng-de-xiang-ri-kui/</id>
+        <link href="https://blog.vemagic.com/post/xin-sheng-de-xiang-ri-kui/">
         </link>
         <updated>2011-06-24T02:56:58.000Z</updated>
     </entry>
     <entry>
         <title type="html"><![CDATA[回时的路]]></title>
-        <id>http://blog.vemagic.com/post/wu-ti-2/</id>
-        <link href="http://blog.vemagic.com/post/wu-ti-2/">
+        <id>https://blog.vemagic.com/post/wu-ti-2/</id>
+        <link href="https://blog.vemagic.com/post/wu-ti-2/">
         </link>
         <updated>2010-07-25T03:32:08.000Z</updated>
     </entry>
     <entry>
         <title type="html"><![CDATA[欢唱——为其到来]]></title>
-        <id>http://blog.vemagic.com/post/huan-chang-wei-qi-dao-lai/</id>
-        <link href="http://blog.vemagic.com/post/huan-chang-wei-qi-dao-lai/">
+        <id>https://blog.vemagic.com/post/huan-chang-wei-qi-dao-lai/</id>
+        <link href="https://blog.vemagic.com/post/huan-chang-wei-qi-dao-lai/">
         </link>
         <updated>2010-07-20T04:48:27.000Z</updated>
     </entry>
     <entry>
         <title type="html"><![CDATA[秘密]]></title>
-        <id>http://blog.vemagic.com/post/mi-mi/</id>
-        <link href="http://blog.vemagic.com/post/mi-mi/">
+        <id>https://blog.vemagic.com/post/mi-mi/</id>
+        <link href="https://blog.vemagic.com/post/mi-mi/">
         </link>
         <updated>2010-07-15T04:40:50.000Z</updated>
     </entry>
     <entry>
         <title type="html"><![CDATA[追寻]]></title>
-        <id>http://blog.vemagic.com/post/zhui-xun/</id>
-        <link href="http://blog.vemagic.com/post/zhui-xun/">
+        <id>https://blog.vemagic.com/post/zhui-xun/</id>
+        <link href="https://blog.vemagic.com/post/zhui-xun/">
         </link>
         <updated>2010-07-04T04:14:08.000Z</updated>
     </entry>
     <entry>
         <title type="html"><![CDATA[创世纪]]></title>
-        <id>http://blog.vemagic.com/post/chuang-shi-ji/</id>
-        <link href="http://blog.vemagic.com/post/chuang-shi-ji/">
+        <id>https://blog.vemagic.com/post/chuang-shi-ji/</id>
+        <link href="https://blog.vemagic.com/post/chuang-shi-ji/">
         </link>
         <updated>2010-04-05T04:05:10.000Z</updated>
     </entry>
