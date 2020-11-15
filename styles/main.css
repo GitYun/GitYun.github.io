@@ -585,3 +585,9 @@
         font-family: -apple-system,BlinkMacSystemFont,'Helvetica Neue','PingFang SC','Hiragino Sans GB','Droid Sans Fallback','Microsoft YaHei',sans-serif;
       }
     
+      .intro .avatar img {
+        width: 50%;
+        height: auto;
+        border-radius: 1%;
+      }
+    
