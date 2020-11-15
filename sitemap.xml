@@ -1,113 +1,120 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-stylesheet type="text/xsl" href="sitemap.xsl"?>
-<!-- Free Sitemap Generator http://www.sitemapx.com -->
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+
 <url>
-<loc>http://blog.vemagic.com/</loc>
-<priority>1.0</priority>
-<lastmod>2020-03-09T22:30:00+00:00</lastmod>
-<changefreq>Daily</changefreq>
+  <loc>https://blog.vemagic.com/</loc>
+  <lastmod>2020-11-15T08:48:27+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>1.00</priority>
 </url>
 <url>
-<loc>http://blog.vemagic.com/archives/</loc>
-<priority>1.0</priority>
-<lastmod>2020-03-09T22:30:01+00:00</lastmod>
-<changefreq>Daily</changefreq>
+  <loc>https://blog.vemagic.com/archives/</loc>
+  <lastmod>2020-11-15T08:48:27+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.80</priority>
 </url>
 <url>
-<loc>http://blog.vemagic.com/tags/</loc>
-<priority>1.0</priority>
-<lastmod>2020-03-09T22:30:02+00:00</lastmod>
-<changefreq>Daily</changefreq>
+  <loc>https://blog.vemagic.com/tags/</loc>
+  <lastmod>2020-11-15T08:48:27+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.80</priority>
 </url>
 <url>
-<loc>http://blog.vemagic.com/post/about/</loc>
-<priority>1.0</priority>
-<lastmod>2020-03-09T22:30:08+00:00</lastmod>
-<changefreq>Daily</changefreq>
+  <loc>https://blog.vemagic.com/post/about/</loc>
+  <lastmod>2020-11-15T08:48:27+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.80</priority>
 </url>
 <url>
-<loc>http://blog.vemagic.com/post/chuang-shi-ji/</loc>
-<priority>1.0</priority>
-<lastmod>2020-03-09T22:30:46+00:00</lastmod>
-<changefreq>Daily</changefreq>
+  <loc>https://blog.vemagic.com/post/zai-vmware-shang-an-zhuang-arch-linux/</loc>
+  <lastmod>2020-11-15T08:48:27+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.64</priority>
 </url>
 <url>
-<loc>http://blog.vemagic.com/post/huan-chang-wei-qi-dao-lai/</loc>
-<priority>1.0</priority>
-<lastmod>2020-03-09T22:30:39+00:00</lastmod>
-<changefreq>Daily</changefreq>
+  <loc>https://blog.vemagic.com/post/mu-song-hai-zi-ban-de-zi-ji/</loc>
+  <lastmod>2020-11-15T08:48:27+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.64</priority>
 </url>
 <url>
-<loc>http://blog.vemagic.com/post/ji-6-yue-25-ri-de-qi-fen/</loc>
-<priority>1.0</priority>
-<lastmod>2020-03-09T22:30:31+00:00</lastmod>
-<changefreq>Daily</changefreq>
+  <loc>https://blog.vemagic.com/post/meng/</loc>
+  <lastmod>2020-11-15T08:48:27+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.64</priority>
 </url>
 <url>
-<loc>http://blog.vemagic.com/post/meng/</loc>
-<priority>1.0</priority>
-<lastmod>2020-03-09T22:30:22+00:00</lastmod>
-<changefreq>Daily</changefreq>
+  <loc>https://blog.vemagic.com/post/ji-6-yue-25-ri-de-qi-fen/</loc>
+  <lastmod>2020-11-15T08:48:27+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.64</priority>
 </url>
 <url>
-<loc>http://blog.vemagic.com/post/mi-mi/</loc>
-<priority>1.0</priority>
-<lastmod>2020-03-09T22:30:40+00:00</lastmod>
-<changefreq>Daily</changefreq>
+  <loc>https://blog.vemagic.com/post/xin-sheng-de-xiang-ri-kui/</loc>
+  <lastmod>2020-11-15T08:48:27+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.64</priority>
 </url>
 <url>
-<loc>http://blog.vemagic.com/post/mu-song-hai-zi-ban-de-zi-ji/</loc>
-<priority>1.0</priority>
-<lastmod>2020-03-09T22:30:19+00:00</lastmod>
-<changefreq>Daily</changefreq>
+  <loc>https://blog.vemagic.com/post/wu-ti-2/</loc>
+  <lastmod>2020-11-15T08:48:27+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.64</priority>
 </url>
 <url>
-<loc>http://blog.vemagic.com/post/wu-ti-1/</loc>
-<priority>1.0</priority>
-<lastmod>2020-03-09T22:30:49+00:00</lastmod>
-<changefreq>Daily</changefreq>
+  <loc>https://blog.vemagic.com/post/huan-chang-wei-qi-dao-lai/</loc>
+  <lastmod>2020-11-15T08:48:27+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.64</priority>
 </url>
 <url>
-<loc>http://blog.vemagic.com/post/wu-ti-2/</loc>
-<priority>1.0</priority>
-<lastmod>2020-03-09T22:30:37+00:00</lastmod>
-<changefreq>Daily</changefreq>
+  <loc>https://blog.vemagic.com/post/mi-mi/</loc>
+  <lastmod>2020-11-15T08:48:27+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.64</priority>
 </url>
 <url>
-<loc>http://blog.vemagic.com/post/xin-sheng-de-xiang-ri-kui/</loc>
-<priority>1.0</priority>
-<lastmod>2020-03-09T22:30:33+00:00</lastmod>
-<changefreq>Daily</changefreq>
+  <loc>https://blog.vemagic.com/post/zhui-xun/</loc>
+  <lastmod>2020-11-15T08:48:27+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.64</priority>
 </url>
 <url>
-<loc>http://blog.vemagic.com/post/zai-vmware-shang-an-zhuang-arch-linux/</loc>
-<priority>1.0</priority>
-<lastmod>2020-03-09T22:30:10+00:00</lastmod>
-<changefreq>Daily</changefreq>
+  <loc>https://blog.vemagic.com/post/chuang-shi-ji/</loc>
+  <lastmod>2020-11-15T08:48:27+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.64</priority>
 </url>
 <url>
-<loc>http://blog.vemagic.com/post/zhui-xun/</loc>
-<priority>1.0</priority>
-<lastmod>2020-03-09T22:30:42+00:00</lastmod>
-<changefreq>Daily</changefreq>
+  <loc>https://blog.vemagic.com/post/wu-ti-1/</loc>
+  <lastmod>2020-11-15T08:48:27+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.64</priority>
 </url>
 <url>
-<loc>http://blog.vemagic.com/tag/kQw-fvw_F/</loc>
-<priority>1.0</priority>
-<lastmod>2020-03-09T22:30:54+00:00</lastmod>
-<changefreq>Daily</changefreq>
+  <loc>https://blog.vemagic.com/tag/Lq2tnXqf_/</loc>
+  <lastmod>2020-11-15T08:48:27+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.64</priority>
 </url>
 <url>
-<loc>http://blog.vemagic.com/tag/Lq2tnXqf_/</loc>
-<priority>1.0</priority>
-<lastmod>2020-03-09T22:30:51+00:00</lastmod>
-<changefreq>Daily</changefreq>
+  <loc>https://blog.vemagic.com/tag/kQw-fvw_F/</loc>
+  <lastmod>2020-11-15T08:48:27+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.64</priority>
 </url>
 <url>
-<loc>http://blog.vemagic.com/tag/z8Jjf_-dB/</loc>
-<priority>1.0</priority>
-<lastmod>2020-03-09T22:30:58+00:00</lastmod>
-<changefreq>Daily</changefreq>
+  <loc>https://blog.vemagic.com/tag/z8Jjf_-dB/</loc>
+  <lastmod>2020-11-15T08:48:27+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.64</priority>
 </url>
+
+
 </urlset>
