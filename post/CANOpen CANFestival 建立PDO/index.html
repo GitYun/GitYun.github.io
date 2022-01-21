@@ -158,7 +158,7 @@
                     <article class="post-wrap">
                         <header class="post-header">
                             <h1 class="post-title">
-                                记6月25日的气氛
+                                CANOpen开源实现CanFestival的PDO
                             </h1>
                             
                                 <!--en-->
@@ -168,17 +168,17 @@
                                         vEmagic's Blog
                                     </a>
                                     <span class="post-time">
-                                Date: <a href="#">2011-06-27</a>
+                                Date: <a href="#">2022-01-21</a>
                             </span>
                                     <span class="post-readtime">Reading Time:<a
-                                    href="#">1.1
+                                    href="#">3.3
                                     mins</a></span>
-                                    <span class="post-words">words:<a href="#">327</a></span>
+                                    <span class="post-words">words:<a href="#">887</a></span>
                                     
                                         <span class="post-category">
                                 Category:
                                 
-                                <a href="https://blog.vemagic.com/tag/z8Jjf_-dB/">年少的我</a>
+                                <a href="https://blog.vemagic.com/tag/XWIPW1TCk/">Embeded</a>
                                 
                             </span>
                                         
@@ -189,11 +189,54 @@
                                 
                         </header>
                         <div class="post-content">
-                            <p>——2011年6月25日，是高考成绩公布那天。</p>
-<p>  焦急、不安、十八般苦恼全都涌上心头，叫人坐立不安。<br>
-  如果要形容那天的感受，我敢说比高考当天还要紧张。当时打电话咨询班主任时，简直全身在发抖，心里思绪万千（考砸了怎么办？上不了大学怎么办？我还能去干什么呢？），当班主任说出我的成绩时，我却脑中一片空白，无法形容那时心情究竟如何；然后我赶紧跑去和妈妈说：”502的成绩，519的重本线“。<br>
-  我只能说是遗憾，不过还算发挥正常。高考考完当天同学们大都说发挥失常了，后来听说成绩确实大多不如平常。语文98分、数学108分、102的英语是我万万不敢想象的（以前基本没有及格过），194的理综；对我来说还算正常吧，本身成绩也不是有多好，这个成绩虽说不是很满意，但自己能接受。唯一感到伤心的是我的好友只考了440分。为他感到特别遗憾。<br>
-  那天晚上久久不能入睡，一直在床上躺到2点才慢慢睡去，心里总觉得不安似的。</p>
+                            <h2 id="主机部分master">主机部分（Master）：</h2>
+<p>从机PDO发送或者接收需要SYNC信号，也就是从机接收到一个或者多个SYNC信号后发送一个PDO，也可以是主机明确给出请求信号。</p>
+<p>SYNC同步信号产生设置：</p>
+<ol>
+<li>
+<p>写0x40000080到index 0x1005, subindex 0位置（SYNC COB ID）；</p>
+</li>
+<li>
+<p>设置同步信号周期，在index 0x1006, subindex 0位置写入周期值（以us为单位）；</p>
+</li>
+<li>
+<p>启动时钟定时器（MCU启动定时器或者PC创建定时器线程，定时时间到期调用TimeDispatch()完成定时任务）。</p>
+</li>
+</ol>
+<p>注：若需要停止产生SYNC信号，可在0x1005-0x00位置写0。</p>
+<h3 id="主机接收设置">主机接收设置：</h3>
+<p>主机需要将自己的OD的RPDO（如0x1400-0x01即index 0x1400, subindex 0x01）的COB-ID的值改成从机的TPDO（0x1800-0x01）的一样的值，即建立一一对应的关系。同时其PDO MAPPING也是一一对应的，即Master的RPDO和Slave的TPDO的MAPPING中的变量是一一对应的。</p>
+<h3 id="主机发送设置">主机发送设置：</h3>
+<p>主机需要将自己的OD的TPDO（如0x1800-0x01）的COB-ID的值改成从机的RPDO（0x1800-0x01）的一样的值，即建立一一对应的关系。同时其PDO MAPPING也是一一对应的，即Master的TPDO和Slave的RPDO的MAPPING中的变量是一一对应的。</p>
+<p>在PDO Mapping索引项中，从第一至后面的子索引项，那个32位的值高16位为对应变量在OD中的索引值，中间8位为其索引项的子索引值，低8位为此变量的位数。</p>
+<p>注：一个PDO Mapping的所有变量的位数总和不得超过64位。</p>
+<p>主机必须处于Operational状态才能发送或者接收处理PDO帧。</p>
+<p>主机post_sync()回调函数调用发生在SYNC帧发出去之后，从机在接收到SYNC之后调用。post_TPDO()调用发生在处理完SYNC帧之后。</p>
+<h2 id="从机部分">从机部分：</h2>
+<p>类似主机，补充几点，发送之前需要确定PDO的传输类型（Transmission Type），若为0，只能异步发送（即接收到发送请求或者主动发送）；若为1<sub>240，则接收到1</sub>240个SYNC帧发送一次，若为其他见协议。</p>
+<p>TRANS_RTR_SYNC( 252)当收到PDO请求，若该PDO_status的状态位PDO_RTR_SYNC_READY置位（会在接收到SYNC信号调用的_sendPDOevent中BuildPDO并置该位），则直接发出PDO的最后一帧（PDO_status[numPdo].last_message）。</p>
+<p>TRANS_RTR(253)参数，当收到PDO请求（SendPDORequest）后立即BuildPDO发送被请求的PDO帧（cob_id标示）。</p>
+<p>TRANS_EVENT_SPECIFIC(254)以及TRANS_EVENT_PROFILE(255)：调用sendPDOevent()（未被阻止inhibited）后建立PDO并检查其PDO帧与上一次发送（PDO_status.last_message）的PDO帧内容是否发生变化，若发生变化则发送，否则不发送。接收到SYNC帧不会发送该帧。但是若接收到PDO请求则强制建立并发送。</p>
+<p>TRANS_SYNC_ACYCLIC(0)：当接收到SYNC帧，调用sendOnePDOevent()，若PDO Mapping中索引的变量发生变化则发送，否则不发送。调用sendPDOevent(CO_Data * d)（不是_sendPDOevent()）不会发送。</p>
+<h2 id="总结">总结</h2>
+<p><strong>综上可知：</strong></p>
+<ol>
+<li>
+<p>TRANS_SYNC_MIN，TRANS_SYNC_MAX及TRANS_EVERY_N_SYNC(n)是在接收到相应数量SYNC后建立发送PDO；</p>
+</li>
+<li>
+<p>TRANS_SYNC_ACYCLIC是接收到SYNC后检查其PDO帧是否发生变化，若有变化发送。</p>
+</li>
+<li>
+<p>TRANS_RTR和TRANS_RTR_SYNC是根据PDO请求发送，前者得到请求立即发送，后者是在已经接收到SYNC帧建立PDO后发送。</p>
+</li>
+<li>
+<p>TRANS_EVENT_SPECIFIC和TRANS_EVENT_PROFILE是由sendPDOevent()检查PDO帧发生变化后发送，在收到PDO请求也会强制发送一次。</p>
+</li>
+</ol>
+<h2 id="最后">最后</h2>
+<p>当需要禁止某个远程节点的某个PDO，可以在其OD的PDO的COB-ID值的最高位（第31位）置1，这需要通过SDO服务实现。</p>
+<p>原文:https://my.oschina.net/u/3583648/blog/1457125</p>
 
                         </div>
                         
@@ -217,9 +260,9 @@
                                                      -->
                                                     <div>
                                                     <span style="color: burlywood;">Share:</span>
-                                                        <a title="QR Code" target="_blank" href="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://blog.vemagic.com/post/ji-6-yue-25-ri-de-qi-fen/"><i class="fa fa-qrcode"></i></a>
-                                                        <a title="QQ" target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://blog.vemagic.com/post/ji-6-yue-25-ri-de-qi-fen/&sharesource=qzone&title=记6月25日的气氛&pics=https://blog.vemagic.com/images/avatar.png?v=1642752567838&summary="><i class="fa fa-qq"></i></a>
-                                                        <a title="Weibo" target="_blank" href="https://service.weibo.com/share/share.php?url=https://blog.vemagic.com/post/ji-6-yue-25-ri-de-qi-fen/&sharesource=weibo&title=记6月25日的气氛 + " - " + &pic="https://blog.vemagic.com/images/avatar.png?v=1642752567838 "><i class="fa fa-weibo "></i></a>
+                                                        <a title="QR Code" target="_blank" href="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://blog.vemagic.com/post/CANOpen CANFestival 建立PDO/"><i class="fa fa-qrcode"></i></a>
+                                                        <a title="QQ" target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://blog.vemagic.com/post/CANOpen CANFestival 建立PDO/&sharesource=qzone&title=CANOpen开源实现CanFestival的PDO&pics=https://blog.vemagic.com/images/avatar.png?v=1642752567838&summary="><i class="fa fa-qq"></i></a>
+                                                        <a title="Weibo" target="_blank" href="https://service.weibo.com/share/share.php?url=https://blog.vemagic.com/post/CANOpen CANFestival 建立PDO/&sharesource=weibo&title=CANOpen开源实现CanFestival的PDO + " - " + &pic="https://blog.vemagic.com/images/avatar.png?v=1642752567838 "><i class="fa fa-weibo "></i></a>
                                                     </div>    
                                                         
                                                             <div class="reward ">
@@ -238,8 +281,8 @@
                                                                         <span class="tag ">
                         
                         
-                        <a href="https://blog.vemagic.com/tag/z8Jjf_-dB/">#
-                                                年少的我
+                        <a href="https://blog.vemagic.com/tag/XWIPW1TCk/">#
+                                                Embeded
                                                     </a>
                                                     
                                                         
@@ -255,13 +298,9 @@
                                                                                 <!---->
                                                                                 <section class="post-nav">
                                                                                     
-                                                                                        <a class="prev" rel="prev" href="https://blog.vemagic.com/post/meng/">
-                                                                                            梦
-                                                                                        </a>
-                                                                                        
                                                                                             
-                                                                                                <a class="next" rel="next" href="https://blog.vemagic.com/post/xin-sheng-de-xiang-ri-kui/">
-                                                                                                    心生的向日葵
+                                                                                                <a class="next" rel="next" href="https://blog.vemagic.com/post/CanOpen初识/">
+                                                                                                    CANOpen初识
                                                                                                 </a>
                                                                                                 
                                                                                 </section>

@@ -2,14 +2,28 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://blog.vemagic.com</id>
     <title>vEmagic&apos;s Blog</title>
-    <updated>2021-08-13T11:21:46.211Z</updated>
+    <updated>2022-01-21T08:09:31.455Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://blog.vemagic.com"/>
     <link rel="self" href="https://blog.vemagic.com/atom.xml"/>
     <subtitle>Love what you love</subtitle>
     <logo>https://blog.vemagic.com/images/avatar.png</logo>
     <icon>https://blog.vemagic.com/favicon.ico</icon>
-    <rights>All rights reserved 2021, vEmagic&apos;s Blog</rights>
+    <rights>All rights reserved 2022, vEmagic&apos;s Blog</rights>
+    <entry>
+        <title type="html"><![CDATA[CANOpen开源实现CanFestival的PDO]]></title>
+        <id>https://blog.vemagic.com/post/CANOpen CANFestival 建立PDO/</id>
+        <link href="https://blog.vemagic.com/post/CANOpen CANFestival 建立PDO/">
+        </link>
+        <updated>2022-01-21T07:43:17.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[CANOpen初识]]></title>
+        <id>https://blog.vemagic.com/post/CanOpen初识/</id>
+        <link href="https://blog.vemagic.com/post/CanOpen初识/">
+        </link>
+        <updated>2022-01-06T06:40:47.000Z</updated>
+    </entry>
     <entry>
         <title type="html"><![CDATA[在VMWare上安装Arch Linux]]></title>
         <id>https://blog.vemagic.com/post/zai-vmware-shang-an-zhuang-arch-linux/</id>
@@ -71,19 +85,5 @@
         <link href="https://blog.vemagic.com/post/mi-mi/">
         </link>
         <updated>2010-07-15T04:40:50.000Z</updated>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[迷雾——心缺失的方向]]></title>
-        <id>https://blog.vemagic.com/post/mi-wu-xin-que-shi-de-fang-xiang/</id>
-        <link href="https://blog.vemagic.com/post/mi-wu-xin-que-shi-de-fang-xiang/">
-        </link>
-        <updated>2010-07-05T04:43:09.000Z</updated>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[追寻]]></title>
-        <id>https://blog.vemagic.com/post/zhui-xun/</id>
-        <link href="https://blog.vemagic.com/post/zhui-xun/">
-        </link>
-        <updated>2010-07-04T04:14:08.000Z</updated>
     </entry>
 </feed>

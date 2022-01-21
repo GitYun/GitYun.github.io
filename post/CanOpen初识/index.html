@@ -158,7 +158,7 @@
                     <article class="post-wrap">
                         <header class="post-header">
                             <h1 class="post-title">
-                                记6月25日的气氛
+                                CANOpen初识
                             </h1>
                             
                                 <!--en-->
@@ -168,17 +168,17 @@
                                         vEmagic's Blog
                                     </a>
                                     <span class="post-time">
-                                Date: <a href="#">2011-06-27</a>
+                                Date: <a href="#">2022-01-06</a>
                             </span>
                                     <span class="post-readtime">Reading Time:<a
-                                    href="#">1.1
+                                    href="#">5.0
                                     mins</a></span>
-                                    <span class="post-words">words:<a href="#">327</a></span>
+                                    <span class="post-words">words:<a href="#">1259</a></span>
                                     
                                         <span class="post-category">
                                 Category:
                                 
-                                <a href="https://blog.vemagic.com/tag/z8Jjf_-dB/">年少的我</a>
+                                <a href="https://blog.vemagic.com/tag/XWIPW1TCk/">Embeded</a>
                                 
                             </span>
                                         
@@ -189,11 +189,201 @@
                                 
                         </header>
                         <div class="post-content">
-                            <p>——2011年6月25日，是高考成绩公布那天。</p>
-<p>  焦急、不安、十八般苦恼全都涌上心头，叫人坐立不安。<br>
-  如果要形容那天的感受，我敢说比高考当天还要紧张。当时打电话咨询班主任时，简直全身在发抖，心里思绪万千（考砸了怎么办？上不了大学怎么办？我还能去干什么呢？），当班主任说出我的成绩时，我却脑中一片空白，无法形容那时心情究竟如何；然后我赶紧跑去和妈妈说：”502的成绩，519的重本线“。<br>
-  我只能说是遗憾，不过还算发挥正常。高考考完当天同学们大都说发挥失常了，后来听说成绩确实大多不如平常。语文98分、数学108分、102的英语是我万万不敢想象的（以前基本没有及格过），194的理综；对我来说还算正常吧，本身成绩也不是有多好，这个成绩虽说不是很满意，但自己能接受。唯一感到伤心的是我的好友只考了440分。为他感到特别遗憾。<br>
-  那天晚上久久不能入睡，一直在床上躺到2点才慢慢睡去，心里总觉得不安似的。</p>
+                            <h2 id="对象字典">对象字典</h2>
+<p>CANopen 对象字典（OD: Object Dictionary）是CANopen 协议最为核心的概念。所谓的对象字典就是一个有序的对象组，描述了对应CANopen 节点的所有参数，包括通讯数据的存放位置也列入其索引，这个表变成可以传递的形式就叫做<strong>EDS 文件（电子数据文档Electronic Data Sheet）</strong>。</p>
+<p><strong>每个对象采用一个16 位的索引值来寻址</strong>，这个索引值通常被称为<strong>索引，其范围在0x0000到0xFFFF 之间。<strong>为了避免数据量大时无索引可分配，所以在某些索引下也定义了一个</strong>8 位的子索引，其范围是0x00 到0xFF 之间</strong>。<br>
+<strong>每个索引内具体的参数（值），最大用32 位的变量来表示，即Unsigned32，四个字节</strong></p>
+<h3 id="对象字典索引范围">对象字典索引范围</h3>
+<figure data-type="image" tabindex="1"><img src="https://blog.vemagic.com/post-images/1641459424393.bmp" alt="对象字典索引范围" loading="lazy"></figure>
+<p>其中标绿色底纹的<strong>通讯对象子协议区</strong>和<strong>制造商特定子协议区</strong>是用户需要关注的区域</p>
+<h3 id="通信对象子协议区communication-profile-area">通信对象子协议区（Communication profile area）</h3>
+<figure data-type="image" tabindex="2"><img src="https://blog.vemagic.com/post-images/1641459559865.bmp" alt="通信对象子协议区" loading="lazy"></figure>
+<p>通讯对象子协议区（Communication profile area）定义了所有和通信有关的对象参数。<strong>标绿色底纹的索引范围1000h to 1029h 为通用通讯对象，所有CANopen 节点都必须具备这些索引，否则将无法加入CANopen 网络</strong>。其他索引根据实际情况进行分配与定义</p>
+<h3 id="通用通信对象general-communication-objects">通用通信对象（General communication objects）</h3>
+<table>
+<thead>
+<tr>
+<th>Index索引</th>
+<th>Object对象</th>
+<th>Name名称</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1000h</td>
+<td>VAR 变量</td>
+<td>Device type 设备类型</td>
+</tr>
+<tr>
+<td>1001h</td>
+<td>VAR 变量</td>
+<td>Error register 错误寄存器</td>
+</tr>
+<tr>
+<td>1002h</td>
+<td>VAR 变量</td>
+<td>Manufacturer status register 制造商状态寄存器</td>
+</tr>
+<tr>
+<td>1003h</td>
+<td>ARRAY 数组</td>
+<td>Pre-defined error field 预定义错误场</td>
+</tr>
+<tr>
+<td>1005h</td>
+<td>VAR 变量</td>
+<td>COB-ID Sync message 同步报文COB 标识符</td>
+</tr>
+<tr>
+<td>1006h</td>
+<td>VAR 变量</td>
+<td>Communication cycle period 同步通信循环周期（单位us）</td>
+</tr>
+<tr>
+<td>1007h</td>
+<td>VAR 变量</td>
+<td>Synchronous windows length 同步窗口长度(单位us)</td>
+</tr>
+<tr>
+<td>1008h</td>
+<td>VAR 变量</td>
+<td>Manufacturer device name 制造商设备名称</td>
+</tr>
+<tr>
+<td>1009h</td>
+<td>VAR 变量</td>
+<td>Manufacturer hardware version 制造商硬件版本</td>
+</tr>
+<tr>
+<td>100Ah</td>
+<td>VAR 变量</td>
+<td>Manufacturer software version 制造商软件版本</td>
+</tr>
+<tr>
+<td>100Ch</td>
+<td>VAR 变量</td>
+<td>Guard time 守护时间（单位ms）</td>
+</tr>
+<tr>
+<td>100Dh</td>
+<td>VAR 变量</td>
+<td>Life time factor 寿命因子（单位ms）</td>
+</tr>
+<tr>
+<td>1010h</td>
+<td>VAR 变量</td>
+<td>Store parameters 保存参数</td>
+</tr>
+<tr>
+<td>1011h</td>
+<td>VAR 变量</td>
+<td>Restore default parameters 恢复默认参数</td>
+</tr>
+<tr>
+<td>1012h</td>
+<td>VAR 变量</td>
+<td>COB-ID time stamp 时间报文COB 标识符（发送网络时间）</td>
+</tr>
+<tr>
+<td>1013h</td>
+<td>VAR 变量</td>
+<td>High resolution time stamp 高分辨率时间标识</td>
+</tr>
+<tr>
+<td>1014h</td>
+<td>VAR 变量</td>
+<td>COB-ID emergency 紧急报文COB 标识符</td>
+</tr>
+<tr>
+<td>1015h</td>
+<td>VAR 变量</td>
+<td>Inhibit time emergency 紧急报文禁止时间（单位100us）</td>
+</tr>
+<tr>
+<td>1016h</td>
+<td>ARRAY 数组</td>
+<td>Consumer heartbeat time 消费者心跳时间间隔(单位ms)</td>
+</tr>
+<tr>
+<td>1017h</td>
+<td>VAR 变量</td>
+<td>Producer heartbeat time 生产者心跳时间间隔（单位ms）</td>
+</tr>
+<tr>
+<td>1018h</td>
+<td>RECORD 记录</td>
+<td>Identity object 厂商ID 标识对象</td>
+</tr>
+<tr>
+<td>1019h</td>
+<td>VAR 变量</td>
+<td>Sync.counter overflow value 同步计数溢出值</td>
+</tr>
+<tr>
+<td>1020h</td>
+<td>ARRAY 数组</td>
+<td>Verify configuration 验证配置</td>
+</tr>
+<tr>
+<td>1021h</td>
+<td>VAR 变量</td>
+<td>Store EDS 存储EDS</td>
+</tr>
+<tr>
+<td>1022h</td>
+<td>VAR 变量</td>
+<td>Storage format 存储格式</td>
+</tr>
+<tr>
+<td>1023h</td>
+<td>RECORD 记录</td>
+<td>OS command 操作系统命令</td>
+</tr>
+<tr>
+<td>1024h</td>
+<td>VAR 变量</td>
+<td>OS command mode 操作系统命令模式</td>
+</tr>
+<tr>
+<td>1025h</td>
+<td>RECORD 记录</td>
+<td>OS debugger interface 操作系统调试接口</td>
+</tr>
+<tr>
+<td>1026h</td>
+<td>ARRAY 数组</td>
+<td>OS prompt 操作系统提示</td>
+</tr>
+<tr>
+<td>1027h</td>
+<td>ARRAY 数组</td>
+<td>Module list 模块列表</td>
+</tr>
+<tr>
+<td>1028h</td>
+<td>ARRAY 数组</td>
+<td>Emergency consumer 紧急报文消费者</td>
+</tr>
+<tr>
+<td>1029h</td>
+<td>ARRAY 数组</td>
+<td>Error behavior 错误行为</td>
+</tr>
+</tbody>
+</table>
+<p>由于<strong>通用通讯对象十分重要，NMT 主站（CANopen 主站）在启动时，通常都全部或者部分读取所有从站中通用通讯对象中的索引，所以所有的通用通讯对象都必须在CANopen 从站中实现</strong>。</p>
+<h4 id="制造商特定子协议manufacturer-specific-profile">制造商特定子协议（Manufacturer-specific Profile）</h4>
+<p>对象字典索引2000h to 5FFFh 为<strong>制造商特定子协议，通常是存放所应用子协议的应用数据</strong>。而<strong>通讯对象子协议区（Communication profile area）是存放这些应用数据的通信参数</strong>。</p>
+<h3 id="标准化设备子协议standardized-profile-area">标准化设备子协议(Standardized profile area)</h3>
+<p>标准化设备子协议，为各种行业不同类型的标准设备定义对象字典中的对象。目前已有<br>
+十几种为不同类型的设备定义的子协议，例如  DS401、DS402、DS406 等，其索引值范围为 0x6000～0x9FFF。同样，这个区域对于不同的标准化设备子协议来说，相同的对象字典项其定义不一定相同。</p>
+<h2 id="过程数据对象pdo-process-data-object">过程数据对象PDO (Process data object)</h2>
+<h3 id="pdo的can-id定义">PDO的CAN-ID定义</h3>
+<p>PDO 通信比较灵活，广义上只要符合PDO 范围内的所有CAN-ID 都可以作为节点自身的TPDO 或者RPDO 使用，也称为<strong>COB-ID （Communication Object Identifier）</strong>，不受功能码和Node-ID 限制</p>
+<p>在PDO 预定义中，人为规定了TPDO 和RPDO，规定了Node-ID 在PDO中的位置，也规定了PDO 的编号。<br>
+<img src="https://blog.vemagic.com/post-images/1641461172463.bmp" alt="PDO的CAN-ID定义" loading="lazy"></p>
+<p><strong>PDO 分为TPDO（发送PDO）和(接收RPDO)，发送和接收是以CANopen 节点自身为参考</strong>（如果CAN 主站或者其他从站就相反）。<strong>TPDO 和RPDO 分别有4 个数据对象，每种数据对象就是1 条CAN 报文封装</strong>。<br>
+<strong>其实所有的PDO的COB-ID 与Node-ID 无必然规则上的联系</strong>。</p>
 
                         </div>
                         
@@ -217,9 +407,9 @@
                                                      -->
                                                     <div>
                                                     <span style="color: burlywood;">Share:</span>
-                                                        <a title="QR Code" target="_blank" href="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://blog.vemagic.com/post/ji-6-yue-25-ri-de-qi-fen/"><i class="fa fa-qrcode"></i></a>
-                                                        <a title="QQ" target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://blog.vemagic.com/post/ji-6-yue-25-ri-de-qi-fen/&sharesource=qzone&title=记6月25日的气氛&pics=https://blog.vemagic.com/images/avatar.png?v=1642752567838&summary="><i class="fa fa-qq"></i></a>
-                                                        <a title="Weibo" target="_blank" href="https://service.weibo.com/share/share.php?url=https://blog.vemagic.com/post/ji-6-yue-25-ri-de-qi-fen/&sharesource=weibo&title=记6月25日的气氛 + " - " + &pic="https://blog.vemagic.com/images/avatar.png?v=1642752567838 "><i class="fa fa-weibo "></i></a>
+                                                        <a title="QR Code" target="_blank" href="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://blog.vemagic.com/post/CanOpen初识/"><i class="fa fa-qrcode"></i></a>
+                                                        <a title="QQ" target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://blog.vemagic.com/post/CanOpen初识/&sharesource=qzone&title=CANOpen初识&pics=https://blog.vemagic.com/images/avatar.png?v=1642752567838&summary="><i class="fa fa-qq"></i></a>
+                                                        <a title="Weibo" target="_blank" href="https://service.weibo.com/share/share.php?url=https://blog.vemagic.com/post/CanOpen初识/&sharesource=weibo&title=CANOpen初识 + " - " + &pic="https://blog.vemagic.com/images/avatar.png?v=1642752567838 "><i class="fa fa-weibo "></i></a>
                                                     </div>    
                                                         
                                                             <div class="reward ">
@@ -238,8 +428,8 @@
                                                                         <span class="tag ">
                         
                         
-                        <a href="https://blog.vemagic.com/tag/z8Jjf_-dB/">#
-                                                年少的我
+                        <a href="https://blog.vemagic.com/tag/XWIPW1TCk/">#
+                                                Embeded
                                                     </a>
                                                     
                                                         
@@ -255,13 +445,13 @@
                                                                                 <!---->
                                                                                 <section class="post-nav">
                                                                                     
-                                                                                        <a class="prev" rel="prev" href="https://blog.vemagic.com/post/meng/">
-                                                                                            梦
+                                                                                        <a class="prev" rel="prev" href="https://blog.vemagic.com/post/CANOpen CANFestival 建立PDO/">
+                                                                                            CANOpen开源实现CanFestival的PDO
                                                                                         </a>
                                                                                         
                                                                                             
-                                                                                                <a class="next" rel="next" href="https://blog.vemagic.com/post/xin-sheng-de-xiang-ri-kui/">
-                                                                                                    心生的向日葵
+                                                                                                <a class="next" rel="next" href="https://blog.vemagic.com/post/zai-vmware-shang-an-zhuang-arch-linux/">
+                                                                                                    在VMWare上安装Arch Linux
                                                                                                 </a>
                                                                                                 
                                                                                 </section>
