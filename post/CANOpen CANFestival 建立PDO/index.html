@@ -78,7 +78,7 @@
                         <input id="switch_default" type="checkbox" class="switch_default">
                         <label for="switch_default" class="toggleBtn"></label>
             </div>
-            <form id="gridea-search-form" data-update="1642754284107" action="/search/index.html">
+            <form id="gridea-search-form" data-update="1642754992945" action="/search/index.html">
                 <input class="search-input" autocomplete="off" spellcheck="false" name="q" autofocus="true" placeholder="Search...">
             </form>
         </div>
@@ -100,7 +100,7 @@
                         <a id="mobile-toggle-theme-en" class="a en">Dark</a>
                         <!--zh-->
                         <a id="mobile-toggle-theme-zh" class="a zh">&nbsp;&#x6697;&#x9ED1;</a>
-                        <form id="gridea-search-form" data-update="1642754284107" action="/search/index.html" style="float: right;">
+                        <form id="gridea-search-form" data-update="1642754992945" action="/search/index.html" style="float: right;">
                             <input class="search-input" autocomplete="off" spellcheck="false" name="q" autofocus="true" placeholder="Search...">
                         </form>
                     </div>
@@ -171,9 +171,9 @@
                                 Date: <a href="#">2022-01-21</a>
                             </span>
                                     <span class="post-readtime">Reading Time:<a
-                                    href="#">3.4
+                                    href="#">3.3
                                     mins</a></span>
-                                    <span class="post-words">words:<a href="#">902</a></span>
+                                    <span class="post-words">words:<a href="#">873</a></span>
                                     
                                         <span class="post-category">
                                 Category:
@@ -213,22 +213,23 @@
 <p>主机必须处于Operational状态才能发送或者接收处理PDO帧。</p>
 <p>主机post_sync()回调函数调用发生在SYNC帧发出去之后，从机在接收到SYNC之后调用。post_TPDO()调用发生在处理完SYNC帧之后。</p>
 <h2 id="从机部分">从机部分：</h2>
-<p>类似主机，补充几点，发送之前需要确定PDO的传输类型（Transmission Type），若为0，只能异步发送（即接收到发送请求或者主动发送）；若为1~240，则接收到1~240个SYNC帧发送一次，若为其他见协议。</p>
-<p>TRANS_RTR_SYNC( 252)当收到PDO请求，若该PDO_status的状态位PDO_RTR_SYNC_READY置位（会在接收到SYNC信号调用的_sendPDOevent中BuildPDO并置该位），则直接发出PDO的最后一帧（PDO_status[numPdo].last_message）。</p>
-<p>TRANS_RTR(253)参数，当收到PDO请求（SendPDORequest）后立即BuildPDO发送被请求的PDO帧（cob_id标示）。</p>
-<p>TRANS_EVENT_SPECIFIC(254)以及TRANS_EVENT_PROFILE(255)：调用sendPDOevent()（未被阻止inhibited）后建立PDO并检查其PDO帧与上一次发送（PDO_status.last_message）的PDO帧内容是否发生变化，若发生变化则发送，否则不发送。接收到SYNC帧不会发送该帧。但是若接收到PDO请求则强制建立并发送。</p>
+<p>类似主机，补充几点，发送之前需要确定PDO的传输类型（Transmission Type）：</p>
 <p>TRANS_SYNC_ACYCLIC(0)：当接收到SYNC帧，调用sendOnePDOevent()，若PDO Mapping中索引的变量发生变化则发送，否则不发送。调用sendPDOevent(CO_Data * d)（不是_sendPDOevent()）不会发送。</p>
+<p>若为1~240，则接收到1~240个SYNC帧时，buildPDO发送一次。</p>
+<p>TRANS_RTR_SYNC( 252)当收到PDO请求，若PDO_status[numPdo].transmit_type_parameter为PDO_RTR_SYNC_READY（会在接收到SYNC信号调用_sendPDOevent()时BuildPDO并置该位），则直接发出PDO的最后一帧（PDO_status[numPdo].last_message）。</p>
+<p>TRANS_RTR(253)参数，当收到PDO请求（SendPDORequest）后立即buildPDO()，然后发送被请求的PDO帧（cob_id标示）。</p>
+<p>TRANS_EVENT_SPECIFIC(254)以及TRANS_EVENT_PROFILE(255)：调用sendPDOevent()（未被阻止inhibited）后建立PDO并检查其PDO帧与上一次发送（PDO_status.last_message）的PDO帧内容是否发生变化，若发生变化则发送，否则不发送。接收到SYNC帧不会发送该帧。但是若接收到PDO请求则强制建立并发送。</p>
 <h2 id="总结">总结</h2>
 <p><strong>综上可知：</strong></p>
 <ol>
 <li>
-<p>TRANS_SYNC_MIN(1)，TRANS_SYNC_MAX(240)及TRANS_EVERY_N_SYNC(n)是在接收到相应数量SYNC后建立发送PDO；</p>
-</li>
-<li>
 <p>TRANS_SYNC_ACYCLIC(0)是接收到SYNC后检查其PDO帧是否发生变化，若有变化发送。</p>
 </li>
 <li>
-<p>TRANS_RTR(253)和TRANS_RTR_SYNC(252)是根据PDO请求发送，前者得到请求立即发送，后者是在已经接收到SYNC帧建立PDO后发送。</p>
+<p>TRANS_SYNC_MIN(1)，TRANS_SYNC_MAX(240)及TRANS_EVERY_N_SYNC(n)是在接收到相应数量SYNC后建立发送PDO；</p>
+</li>
+<li>
+<p>TRANS_RTR_SYNC(252)和TRANS_RTR(253)是根据PDO请求发送，前者得到请求立即发送，后者是在已经接收到SYNC帧建立PDO后发送。</p>
 </li>
 <li>
 <p>TRANS_EVENT_SPECIFIC(254)和TRANS_EVENT_PROFILE(255)是由sendPDOevent()检查PDO帧发生变化后发送，在收到PDO请求也会强制发送一次。</p>
@@ -261,8 +262,8 @@
                                                     <div>
                                                     <span style="color: burlywood;">Share:</span>
                                                         <a title="QR Code" target="_blank" href="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://blog.vemagic.com/post/CANOpen CANFestival 建立PDO/"><i class="fa fa-qrcode"></i></a>
-                                                        <a title="QQ" target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://blog.vemagic.com/post/CANOpen CANFestival 建立PDO/&sharesource=qzone&title=CANOpen开源实现CanFestival的PDO&pics=https://blog.vemagic.com/images/avatar.png?v=1642754284107&summary="><i class="fa fa-qq"></i></a>
-                                                        <a title="Weibo" target="_blank" href="https://service.weibo.com/share/share.php?url=https://blog.vemagic.com/post/CANOpen CANFestival 建立PDO/&sharesource=weibo&title=CANOpen开源实现CanFestival的PDO + " - " + &pic="https://blog.vemagic.com/images/avatar.png?v=1642754284107 "><i class="fa fa-weibo "></i></a>
+                                                        <a title="QQ" target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://blog.vemagic.com/post/CANOpen CANFestival 建立PDO/&sharesource=qzone&title=CANOpen开源实现CanFestival的PDO&pics=https://blog.vemagic.com/images/avatar.png?v=1642754992945&summary="><i class="fa fa-qq"></i></a>
+                                                        <a title="Weibo" target="_blank" href="https://service.weibo.com/share/share.php?url=https://blog.vemagic.com/post/CANOpen CANFestival 建立PDO/&sharesource=weibo&title=CANOpen开源实现CanFestival的PDO + " - " + &pic="https://blog.vemagic.com/images/avatar.png?v=1642754992945 "><i class="fa fa-weibo "></i></a>
                                                     </div>    
                                                         
                                                             <div class="reward ">
@@ -357,7 +358,7 @@
                     console.clear();
                     
                     var newDate = new Date();
-                    newDate.setTime(1642754284107);
+                    newDate.setTime(1642754992945);
                     console.log(" Blog Update Time: " + newDate.toLocaleDateString());
                     console.log("\n %c \u26a1Theme:Chic Author's Blog:https://blog.itjoker.cn  Write By ITJoker  \n\n", "color: #ffffff; background: rgba(49, 49, 49, 0.85); padding:5px 0;border-radius:5px;");
                 </script>
