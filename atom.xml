@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://blog.vemagic.com</id>
     <title>vEmagic&apos;s Blog</title>
-    <updated>2022-01-24T07:40:35.159Z</updated>
+    <updated>2022-01-24T07:41:09.283Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://blog.vemagic.com"/>
     <link rel="self" href="https://blog.vemagic.com/atom.xml"/>
