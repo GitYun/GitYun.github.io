@@ -1,4 +1,4 @@
 User-agent: *
 Disallow:
 
-Sitemap: https://blog.vemagic.com/sitemap.xml
+Sitemap: https://blog.vemagic.cc/sitemap.xml
